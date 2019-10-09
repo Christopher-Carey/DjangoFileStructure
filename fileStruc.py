@@ -1,4 +1,4 @@
-import os
+import os,sys
 import time
 # ----------------GUI-----------------
 from guizero import App, Text, TextBox, PushButton,CheckBox
@@ -22,7 +22,15 @@ def makeStruc():
 
     # ------MAKE APP---------
     time.sleep(5)
-    os.chdir(path+projectName)
+    os.chdir(path + projectName)
+    
+# --------------------write to file---------------------------
+    # os.chdir(path + projectName + "/" + projectName)
+    # fd = os.open("urls.py",os.O_RDWR)
+    # # Writing text
+    # os.write(fd,"This is test".encode())
+    # os.close( fd )
+# --------------------write to file---------------------------
     os.system("mkdir apps")
     os.chdir(path+projectName+"/apps")
     appName=appNamegui.value
