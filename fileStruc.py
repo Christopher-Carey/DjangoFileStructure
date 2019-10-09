@@ -11,15 +11,28 @@ mac = CheckBox(app, text="Check for Mac", align="left",grid=[0,10])
 activity = Text(app,width=75, align="left",text="Activity Here",grid=[0,11])
 # ----------------GUI-----------------
 
+# -----hope to separate into diffrent functions---
+# path=pathdir.value
+# projectName= projectNamegui.value
+# appName=appNamegui.value
+
+# def makeProject():
+# def makeApp():
+# def makeAppStruc():
+# def runProject():
+# def runApp():
+# -----hope to separate into diffrent functions---
+
+
+
+
 def makeStruc():
     # ------MAKE PROJECT---------
     path=pathdir.value
     # path="/Users/ccare/Documents/Coding/Coding Dojo/weekThree/Python/python_stack/django/django_intro/"
     os.chdir(path)
     projectName= projectNamegui.value
-    # projectName= input("enter name")
     os.system("django-admin startproject " +projectName)
-
     # ------MAKE APP---------
     time.sleep(5)
     os.chdir(path + projectName)
@@ -31,10 +44,10 @@ def makeStruc():
     # os.write(fd,"This is test".encode())
     # os.close( fd )
 # --------------------write to file---------------------------
+
     os.system("mkdir apps")
     os.chdir(path+projectName+"/apps")
     appName=appNamegui.value
-    # appName=input("App Name")
     os.system("python ../manage.py startapp "+appName) 
     # ------MAKE FILE STRUCTURE---------
     os.chdir(path+projectName+"/apps/"+appName)
@@ -66,11 +79,12 @@ def makeStruc():
     os.chdir(path+projectName)
     os.system("code .")
     print("=========ALL DONE===========")
-
 # makeStruc()
 
 # ------------GUI-----------------
-button = PushButton(app ,command=makeStruc,text="submit", align="left",grid=[0,8])
+runpro = PushButton(app ,command=makeStruc,text="run program", align="left",grid=[0,8])
+# runpro = PushButton(app ,command=runProject,text="run program", align="left",grid=[0,8])
+# runapp = PushButton(app ,command=runApp,text="run app", align="left",grid=[0,9])
 app.display()
 
 
