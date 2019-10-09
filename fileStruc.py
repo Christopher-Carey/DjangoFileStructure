@@ -53,6 +53,10 @@ def makeStruc():
     os.system("cd..")
     os.chdir(path+projectName+"/apps/"+appName+"/static/"+appName+"/js")
     os.system("type nul > script.js")
+    os.chdir(path+projectName)
+    os.chdir("code .")
+
+
     print("========ALL DONE===========")
 # makeStruc()
 
