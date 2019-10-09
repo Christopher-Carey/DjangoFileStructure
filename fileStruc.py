@@ -75,10 +75,17 @@ def makeStruc():
     os.chdir(path+projectName+"/apps/"+appName+"/static/"+appName+"/js")
     os.system("type nul > script.js")
     activity.value="=========ALL DONE==========="
+    app.update()
     print("=========ALL DONE===========")
+    time.sleep(2)
+    activity.value="=========OPENING VSCODE==========="
+    app.update()
+    time.sleep(5)
     os.chdir(path+projectName)
     os.system("code .")
     print("=========ALL DONE===========")
+    
+
 # makeStruc()
 
 # ------------GUI-----------------
