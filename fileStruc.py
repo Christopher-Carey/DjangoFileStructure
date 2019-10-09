@@ -1,5 +1,13 @@
 import os
 import time
+# ----------------GUI-----------------
+from guizero import App, Text, TextBox, PushButton
+app = App(layout="grid")
+pathdir = TextBox(app,width="200",text="enter directory",grid=[0,0])
+projectNamegui = TextBox(app,width="200" ,text="enter project name", align="left",grid=[0,2])
+appNamegui = TextBox(app,width="200",text="enter app name", align="left",grid=[0,4])
+activity = TextBox(app,width="200", align="left",grid=[0,6])
+# ----------------GUI-----------------
 
 def makeStruc():
     # ------MAKE PROJECT---------
@@ -40,7 +48,11 @@ def makeStruc():
     os.chdir(path+projectName+"/apps/"+appName+"/static/"+appName+"/js")
     os.system("type nul > script.js")
     print("========ALL DONE===========")
-makeStruc()
+# makeStruc()
+
+# ------------GUI-----------------
+button = PushButton(app ,command=makeStruc,text="submit", align="left",grid=[0,8])
+app.display()
 
 
 
