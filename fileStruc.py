@@ -30,26 +30,20 @@ activity = Text(app,width=75, align="left",text="Activity Here",grid=[0,11])
 def makeStruc():
     # ------MAKE PROJECT---------
     path=pathdir.value
-    # path="/Users/ccare/Documents/Coding/Coding Dojo/weekThree/Python/python_stack/django/django_intro/"
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    print (cwd)
     os.chdir(path)
     projectName= projectNamegui.value
     os.system("django-admin startproject " +projectName)
     # ------MAKE APP---------
     time.sleep(5)
+
+
     os.remove(path + projectName+"/"+projectName+"/urls.py")
-    shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\prourls.py', projectName+"/"+projectName+"/urls.py")
+    shutil.copy2(cwd+'/prourls.py', projectName+"/"+projectName+"/urls.py")
+    # shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\prourls.py', projectName+"/"+projectName+"/urls.py")
 
     os.chdir(path + projectName)
-
-    
-# --------------------write to file---------------------------
-    # os.chdir(path + projectName + "/" + projectName)
-    # fd = os.open("urls.py",os.O_RDWR)
-    # # Writing text
-    # os.write(fd,"This is test".encode())
-    # os.close( fd )
-# --------------------write to file---------------------------
-
     os.system("mkdir apps")
     os.chdir(path+projectName+"/apps")
     appName=appNamegui.value
@@ -57,13 +51,10 @@ def makeStruc():
     # ------MAKE FILE STRUCTURE---------
     os.chdir(path+projectName+"/apps/"+appName)
 
-    shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\appurls.py', path+projectName+"/apps/"+appName+"/urls.py")
+
+    shutil.copy2(cwd+'/appurls.py', path+projectName+"/apps/"+appName+"/urls.py")
     os.remove(path+projectName+"/apps/"+appName+"/views.py")
-
-    shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\views.py', path+projectName+"/apps/"+appName+"/views.py")
-
-    # os.system('copy \Users\ccare\Documents\Coding\GIT\DjangoFileStructure\appurl.py '"/"path+projectName+'/apps/'+appName'/destination.txt')
-
+    shutil.copy2(cwd+'/views.py', path+projectName+"/apps/"+appName+"/views.py")
 
 
     os.system("mkdir templates")
@@ -94,7 +85,7 @@ def makeStruc():
     time.sleep(2)
     activity.value="=========OPENING VSCODE==========="
     app.update()
-    time.sleep(5)
+    time.sleep(2)
     os.chdir(path+projectName)
     os.system("code .")
     print("=========ALL DONE===========")
