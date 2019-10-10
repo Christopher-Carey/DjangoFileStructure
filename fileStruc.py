@@ -1,3 +1,4 @@
+import shutil
 import os,sys
 import time
 # ----------------GUI-----------------
@@ -35,7 +36,11 @@ def makeStruc():
     os.system("django-admin startproject " +projectName)
     # ------MAKE APP---------
     time.sleep(5)
+    os.remove(path + projectName+"/"+projectName+"/urls.py")
+    shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\prourls.py', projectName+"/"+projectName+"/urls.py")
+
     os.chdir(path + projectName)
+
     
 # --------------------write to file---------------------------
     # os.chdir(path + projectName + "/" + projectName)
@@ -51,7 +56,16 @@ def makeStruc():
     os.system("python ../manage.py startapp "+appName) 
     # ------MAKE FILE STRUCTURE---------
     os.chdir(path+projectName+"/apps/"+appName)
-    os.system("type nul > urls.py")
+
+    shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\appurls.py', path+projectName+"/apps/"+appName+"/urls.py")
+    os.remove(path+projectName+"/apps/"+appName+"/views.py")
+
+    shutil.copy2(r'\Users\ccare\Documents\Coding\GIT\DjangoFileStructure\views.py', path+projectName+"/apps/"+appName+"/views.py")
+
+    # os.system('copy \Users\ccare\Documents\Coding\GIT\DjangoFileStructure\appurl.py '"/"path+projectName+'/apps/'+appName'/destination.txt')
+
+
+
     os.system("mkdir templates")
     os.system("mkdir static")
     # --templates folder--
