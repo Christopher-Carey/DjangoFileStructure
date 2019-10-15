@@ -63,7 +63,9 @@ def makeStruc():
     os.chdir(path+projectName+"/apps/"+appName+"/templates")
     os.system("mkdir "+appName)
     os.chdir(path+projectName+"/apps/"+appName+"/templates/"+appName)
-    os.system("type nul > index.html")
+    shutil.copy2(cwd+'/index.html', path+projectName+"/apps/"+appName+"/templates/"+appName+"/index.html")
+
+    # os.system("type nul > index.html")
     os.system("cd..")
     os.system("cd..")
     # --static folder--
@@ -75,7 +77,9 @@ def makeStruc():
     os.system("mkdir images")
     # --static subfolders--
     os.chdir(path+projectName+"/apps/"+appName+"/static/"+appName+"/css")
-    os.system("type nul > style.css")
+    shutil.copy2(cwd+'/style.css', path+projectName+"/apps/"+appName+"/static/"+appName+"/css/style.css")
+
+    # os.system("type nul > style.css")
     os.system("cd..")
     os.chdir(path+projectName+"/apps/"+appName+"/static/"+appName+"/js")
     os.system("type nul > script.js")
