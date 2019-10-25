@@ -1,6 +1,5 @@
-from django.conf.urls import url, include	# added an import!
-# from django.contrib import admin              # comment out, or just delete
+from django.conf.urls import url, include
+
 urlpatterns = [
-    url(r'^', include('apps.your_app_name_here.urls')),	# use your app_name here
-    # url(r'^admin/', admin.sites.urls)         # comment out, or just delete
+    url(r'^', include('apps.your_app_name_here.urls')),
 ]
